@@ -4,19 +4,19 @@
       "name": "First Class Room",
       "description": "Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar sagittis metus ut tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas idios.",
       "rate": 220,
-      "image": "first-class.jpg"
+      "image": "images/first-class.jpg"
     },
     {
       "name": "Deluxe Room",
       "description": "Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.",
       "rate": 150,
-      "image": "deluxe.jpg"
+      "image": "images/deluxe.jpg"
     },
     {
       "name": "Suite Room",
       "description": "Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.",
       "rate": 180,
-      "image": "suite.jpg"
+      "image": "images/suite.jpg"
     }
   ]
 }
