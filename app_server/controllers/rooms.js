@@ -1,7 +1,7 @@
 var fs = require('fs');
-var roomsData = JSON.parse(fs.readFileSync('./data/rooms.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('./data/rooms.json', 'utf8'));
 
-console.log(roomsData);
+var roomsData = data.rooms; //extract the array
 
 /* GET Rooms */
 const rooms = (req,res) => {
