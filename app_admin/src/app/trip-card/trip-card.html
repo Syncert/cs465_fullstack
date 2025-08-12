@@ -11,8 +11,11 @@
         </p> 
         <p class="card-text" [innerHTML]="trip.description"> 
         </p> 
-        <div>
-          <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
-        </div>
+          <div class="d-flex gap-2 mt-3">
+               <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
+               <button (click)="onDeleteClick(trip)" [disabled]="deleting" class="btn btn-danger ms-auto">
+                    {{ deleting ? 'Deleting…' : 'Delete Trip' }}
+               </button>
+          </div>
     </div> 
 </div> 

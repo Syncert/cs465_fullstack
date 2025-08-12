@@ -50,6 +50,16 @@ export class TripListing implements OnInit {
       });
   }
 
+  //helpers for responsive grid
+  trackByCode(_: number, t: Trip) {
+    return t.code;
+  }
+
+  removeFromList(code: string) {
+    this.trips = this.trips.filter(t => t.code !== code);
+  }
+
+
   ngOnInit(): void {
     console.log('ngOnInit');
     this.getStuff();

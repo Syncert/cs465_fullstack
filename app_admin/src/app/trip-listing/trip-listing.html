@@ -2,8 +2,12 @@
 <div>
     <button (click)="addTrip()" class = "btn btn-info">Add Trip</button>
 </div>
-<div class="row"> 
-    <div *ngFor="let trip of trips" class="col-3"> 
-        <app-trip-card [trip]="trip" class="card-deck mt-2"></app-trip-card> 
-    </div> 
- </div> 
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
+  <div class="col" *ngFor="let t of trips; trackBy: trackByCode">
+    <app-trip-card
+      [trip]="t"
+      (removed)="removeFromList($event)">
+    </app-trip-card>
+  </div>
+</div>
