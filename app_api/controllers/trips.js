@@ -124,11 +124,42 @@ const tripsUpdateTrip = async (req, res) => {
   // console.log(q);
 };
 
- 
+ //DELETE: /trips/:tripCode - Deletes an existing Trip
+ // Regardless of outcome, repsonse must include HTML status code and a JSON message to the requesting client
+
+ const tripsDeleteTrip = async(req, res) => {
+  // Uncomment for debugging
+  // console.log(req.params);
+  // console.log(req.body);
+  try{
+    const q = await Model
+    .findOneAndDelete({'code' : req.params.tripCode}) //Return and delete single record
+    .exec();
+
+    // Uncomment the following line to show results of query
+    // on the console
+    // console.log(q);
+
+    if(!q)
+    { //Database returned no data
+        return res
+            .status(404) //HTTP status code 404: Not Found
+            .json(err);
+    } else { //return deleted trip
+        return res
+            .status(200) //HTTP status code 200: OK
+            .json(q);
+    }
+  } catch (err) {
+    return res.status(500).json({ error: err.message});
+  }
+
+ };
     
 module.exports = {
     tripsList,
     tripsFindByCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };
