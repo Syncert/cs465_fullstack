@@ -26,12 +26,13 @@ const tripsList = async(req, res) => {
     }
     };
 
-// GET: /trips - lists all the trips
+// GET: /trips/:tripcode - Searches for a trip that matches the code
 // Regardless of outcome , response must include HTML status code
 // and JSON message as the requesting client
 const tripsFindByCode = async(req, res) => {
+  try{
     const q = await Model
-    .find({'code' : req.params.tripCode}) //Return single record
+    .findOne({'code' : req.params.tripCode}) //Return single record
     .exec();
 
     // Uncomment the following line to show results of query
@@ -42,13 +43,17 @@ const tripsFindByCode = async(req, res) => {
     { //Database returned no data
         return res
             .status(404) //HTTP status code 404: Not Found
-            .json(err);
-    } else { //return resulting trip list
-        return res
+            .json({ message: 'Trip not found' });
+    } return res
             .status(200) //HTTP status code 200: OK
-            .json(q);
+            .json(q); //Return single object
+    } catch (e) {
+      return res
+            .status(500)
+            .json({message: 'Server error', error: e.message});
+              
     }
-    };
+  };
 
 // POST: /trips – Adds a new Trip
 // Regardless of outcome, response must include HTML status code
