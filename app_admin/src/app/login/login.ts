@@ -16,7 +16,6 @@ export class Login {
   submitted = false; 
  
   credentials = { 
-    name: '', 
     email: '',
     password: '' 
   } 
@@ -31,14 +30,13 @@ export class Login {
   
   private doLogin(): void { 
     let newUser = { 
-      name: this.credentials.name, 
       email: this.credentials.email 
     } as User; 
  
     // console.log('LoginComponent::doLogin'); 
     // console.log(this.credentials); 
-    this.authenticationService.login(newUser, 
- this.credentials.password); 
+    this.authenticationService.login( newUser, 
+                                      this.credentials.password); 
  
     if(this.authenticationService.isLoggedIn()) 
     { 
@@ -56,8 +54,7 @@ export class Login {
 
   public onLoginSubmit(): void { 
     this.formError = ''; 
-    if (!this.credentials.email || !this.credentials.password || 
-          !this.credentials.name) { 
+    if (!this.credentials.email || !this.credentials.password) { 
       this.formError = 'All fields are required, please try again'; 
       this.router.navigateByUrl('#'); // Return to login page 
     } else { 
