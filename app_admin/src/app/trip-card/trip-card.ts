@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Trip } from '../models/trip';
 import { TripData } from '../services/trip-data';
+import { Authentication } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-card',
@@ -16,7 +17,10 @@ export class TripCard implements OnInit{
     @Output() removed = new EventEmitter<string>(); //emit trip.code when deleted
     deleting = false;
 
-  constructor(private router: Router, private tripData: TripData) {}
+  constructor(private router: Router, 
+              private tripData: TripData,
+              private authenticationService: Authentication
+            ) {}
 
   ngOnInit(): void {
 
@@ -46,4 +50,11 @@ export class TripCard implements OnInit{
       }
     });
   }
+
+  //Confirm login status
+  public isLoggedIn() 
+  { 
+  return this.authenticationService.isLoggedIn(); 
+  }
+
 }

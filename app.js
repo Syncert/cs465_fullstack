@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//pull in .env
+require('dotenv').config();
+
 // Define app_server Routes
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -16,6 +19,10 @@ var contactRouter = require('./app_server/routes/contact');
 
 //Define app_api Routes
 var apiRouter = require('./app_api/routes/index');
+
+// Wire in our authentication module 
+var passport = require('passport'); 
+require('./app_api/config/passport'); 
 
 //Handlebars setup
 var handlebars = require('hbs');
@@ -40,11 +47,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+
+// Catch unauthorized error and create 401 
+app.use((err, req, res, next) => { 
+if(err.name === 'UnauthorizedError') { 
+res 
+.status(401) 
+.json({"message": err.name + ": " + err.message}); 
+} 
+}); 
 
 //Enable CORS
 app.use('/api', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   next();
 });

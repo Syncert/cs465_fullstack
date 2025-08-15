@@ -61,6 +61,10 @@ process.exit(0);
 }); 
 // Make initial connection to DB 
 connect(); 
-// Import Mongoose schema 
-require('./travlr'); 
+
+// Import Mongoose schemas
+require('./trip'); //trip
+require('./user'); //user
+
+
 module.exports = mongoose; 
