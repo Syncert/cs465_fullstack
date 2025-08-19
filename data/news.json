@@ -1,0 +1,28 @@
+{
+  "latest_news": [
+    "2023 Best Beaches Contest Winners",
+    "Top 10 Diving Spots",
+    "Fishing ban to be implemented this year",
+    "Lifeguard saves child from drowning"
+  ],
+  "vacation_tips": [
+    "What to bring on the beach?",
+    "Planning Fun Activities",
+    "Diving Checklist",
+    "First Aid",
+    "How to Build a Sand Castle?",
+    "Tanning Tips"
+  ],
+  "news_article": {
+    "image": "images/kayak.jpg",
+    "title": "News",
+    "article_title": "Experience Kayaking!",
+    "date": "April 03, 2023" ,
+    "author": "Juan De La Cruz",
+    "content": [
+      "Sed et augue lorem... Nulla facilisi. Fusce at pretium felis.",
+      "Cras dui sapien... In hac habitasse platea dictumst...",
+      "Phasellus viverra fringilla lacus... Pellentesque a metus nec magna placerat volutpat."
+    ]
+  }
+}

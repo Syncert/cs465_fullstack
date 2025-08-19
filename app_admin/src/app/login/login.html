@@ -1,0 +1,44 @@
+<div class="auth-wrap">
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h2 class="mb-4 text-center">Login</h2>
+
+      <form (ngSubmit)="onLoginSubmit()" #f="ngForm" novalidate>
+        <div *ngIf="formError" class="alert alert-danger" role="alert">
+          {{ formError }}
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="form-control"
+            required
+            placeholder="Enter email address"
+            [(ngModel)]="credentials.email"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="password" class="form-label">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            class="form-control"
+            required
+            minlength="8"
+            placeholder="e.g 12+ alphanumerics"
+            [(ngModel)]="credentials.password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!f.form.valid">
+          Sign In!
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
