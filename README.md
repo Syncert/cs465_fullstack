@@ -24,8 +24,7 @@ The application demonstrates both **traditional server-rendered HTML** and a **m
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/travlr-getaways.git
-   cd travlr-getaways
+   git clone https://github.com/Syncert/cs465-fullstack.git
    ```
 2. Install dependencies:
    ```bash
